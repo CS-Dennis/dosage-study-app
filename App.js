@@ -8,9 +8,11 @@
 
 import React, { useState } from 'react';
 // import type { Node } from 'react';
-import { Alert, Button, StatusBar, Text, TextInput, View } from 'react-native';
+import { StatusBar, Text, TextInput, View } from 'react-native';
 import { allUnits, unitMatch } from './utils';
 import SelectDropdown from 'react-native-select-dropdown';
+import { Button, IconButton } from 'react-native-paper';
+
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -60,8 +62,8 @@ const App = () => {
           <TextInput placeholder='Number 1' keyboardType='numeric' selectTextOnFocus={true} value={num1} onChangeText={(e) => setNum1(e)} style={{ borderWidth: 1, marginLeft: 5, backgroundColor: "white" }} />
         </View>
 
-        <View style={{ width: "20%", marginLeft: 5, marginRight: 5 }}>
-          <Button title='Swtich' onPress={switchNums} />
+        <View style={{ width: "20%", marginLeft: 5, marginRight: 5}}>
+          <IconButton icon={'arrow-left-right-bold'} style={{position: 'absolute', width: '50%', height: '50%', margin: 'auto', marginLeft: "20%", marginTop: '15%'}} onPress={switchNums} />
         </View>
 
         <View style={{ width: "40%" }}>
@@ -115,7 +117,7 @@ const App = () => {
       </View>
 
       <View style={{ marginTop: '10%', width: '98%', alignSelf: 'center' }}>
-        <Button title='Convert' onPress={convert} />
+        <Button mode='contained' onPress={convert} style={{backgroundColor: '#20b1aa'}} >Convert</Button>
       </View>
     </>
   );
