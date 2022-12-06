@@ -1,2 +1,2 @@
 # dosage-study-app
-React App
+React Native App
