@@ -10,9 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@mdi/font": "^7.0.96",
     "react": "18.1.0",
     "react-native": "0.70.6",
-    "react-native-select-dropdown": "^3.0.3"
+    "react-native-paper": "^4.12.5",
+    "react-native-select-dropdown": "^3.0.3",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

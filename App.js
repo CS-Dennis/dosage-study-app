@@ -8,9 +8,11 @@
 
 import React, { useState } from 'react';
 // import type { Node } from 'react';
-import { Alert, Button, StatusBar, Text, TextInput, View } from 'react-native';
+import { StatusBar, Text, TextInput, View } from 'react-native';
 import { allUnits, unitMatch } from './utils';
 import SelectDropdown from 'react-native-select-dropdown';
+import { Button, IconButton } from 'react-native-paper';
+
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -48,24 +50,24 @@ const App = () => {
   };
 
   return (
-    <>
+    <View style={{backgroundColor: '#fafafa', height: '100%'}}>
       <StatusBar barStyle={'default'} backgroundColor={'grey'} />
       <View style={{ backgroundColor: '', marginTop: '10%' }}>
-        <Text style={{ fontSize: 20, alignSelf: 'center' }}>Dosage Converter</Text>
+        <Text style={{ fontSize: 20, alignSelf: 'center', color: 'grey' }}>Dosage Converter</Text>
       </View>
 
       {/* line 1 for numbers */}
       <View style={{ flexDirection: 'row', marginTop: 20 }}>
         <View style={{ width: "40%" }}>
-          <TextInput placeholder='Number 1' keyboardType='numeric' selectTextOnFocus={true} value={num1} onChangeText={(e) => setNum1(e)} style={{ borderWidth: 1, marginLeft: 5, backgroundColor: "white" }} />
+          <TextInput placeholder='Number 1' keyboardType='numeric' selectTextOnFocus={true} value={num1} onChangeText={(e) => setNum1(e)} style={{ borderWidth: 1, width: '95%', alignSelf:'flex-end', backgroundColor: "white", color: 'black'}} />
         </View>
 
-        <View style={{ width: "20%", marginLeft: 5, marginRight: 5 }}>
-          <Button title='Swtich' onPress={switchNums} />
+        <View style={{ width: "20%"}}>
+          <IconButton icon={'arrow-left-right-bold'} style={{position: 'absolute', width: '50%', height: '50%', margin: 'auto', marginLeft: "20%", marginTop: '15%'}} onPress={switchNums} />
         </View>
 
         <View style={{ width: "40%" }}>
-          <TextInput editable={false} placeholder='Number 2' keyboardType='numeric' value={num2} onChangeText={(e) => setNum2(e)} style={{ borderWidth: 1, marginRight: 15, color: 'black', backgroundColor: '#e1e1e0'}} />
+          <TextInput editable={false} placeholder='Number 2' keyboardType='numeric' value={num2} onChangeText={(e) => setNum2(e)} style={{ borderWidth: 1, width: '95%', alignSelf:"flex-start", color: 'black', backgroundColor: '#e1e1e0'}} />
         </View>
       </View>
 
@@ -73,7 +75,7 @@ const App = () => {
       <View style={{ flexDirection: 'row' }}>
         <View style={{ width: "40%" }}>
           <SelectDropdown
-            buttonStyle={{ width: "100%" }}
+            buttonStyle={{ width: "95%", alignSelf: 'flex-end' }}
             data={allUnits}
             onSelect={(selectedItem) => {
               selectLeftItem(selectedItem);
@@ -94,7 +96,7 @@ const App = () => {
         <View style={{ width: '20%' }} />
         <View style={{ width: "40%" }}>
           <SelectDropdown
-            buttonStyle={{ width: "100%" }}
+            buttonStyle={{ width: "95%", alignSelf: 'flex-start' }}
             data={rightUnitList}
             onSelect={(selectedItem) => {
               setSelectedUnit2(selectedItem)
@@ -115,9 +117,9 @@ const App = () => {
       </View>
 
       <View style={{ marginTop: '10%', width: '98%', alignSelf: 'center' }}>
-        <Button title='Convert' onPress={convert} />
+        <Button mode='contained' onPress={convert} style={{backgroundColor: '#20b1aa'}} >Convert</Button>
       </View>
-    </>
+    </View>
   );
 };
 
