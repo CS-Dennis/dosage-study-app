@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 // import type { Node } from 'react';
-import {StatusBar, Text, TextInput, View} from 'react-native';
+import {ScrollView, StatusBar, Text, TextInput, View} from 'react-native';
 import {allUnits, unitMatch} from './utils';
 import SelectDropdown from 'react-native-select-dropdown';
 import {Button, IconButton} from 'react-native-paper';
@@ -48,9 +48,9 @@ const App = () => {
   };
 
   return (
-    <View style={{backgroundColor: '#fafafa', height: '100%'}}>
+    <ScrollView style={{backgroundColor: '#fafafa', height: '100%'}}>
       <StatusBar barStyle={'default'} backgroundColor={'grey'} />
-      <View style={{backgroundColor: '', marginTop: '10%'}}>
+      <View style={{backgroundColor: '', marginTop: '5%'}}>
         <Text style={{fontSize: 25, alignSelf: 'center', color: 'black'}}>
           Dosage Converter
         </Text>
@@ -58,7 +58,7 @@ const App = () => {
 
       {/* line 1 for numbers */}
       <View style={{flexDirection: 'row', marginTop: 50}}>
-        <View style={{width: '40%'}}>
+        <View style={{width: '45%'}}>
           <TextInput
             placeholder="Number 1"
             keyboardType="numeric"
@@ -75,22 +75,21 @@ const App = () => {
           />
         </View>
 
-        <View style={{width: '20%'}}>
+        <View style={{width: '10%'}}>
           <IconButton
             icon={'arrow-left-right-bold'}
             style={{
               position: 'absolute',
-              width: '50%',
+              width: '100%',
               height: '50%',
               margin: 'auto',
-              marginLeft: '20%',
               marginTop: '15%',
             }}
             onPress={switchNumsAndUnits}
           />
         </View>
 
-        <View style={{width: '40%'}}>
+        <View style={{width: '45%'}}>
           <TextInput
             editable={false}
             placeholder="Number 2"
@@ -110,7 +109,7 @@ const App = () => {
 
       {/* line 2 for unit selections */}
       <View style={{flexDirection: 'row'}}>
-        <View style={{width: '40%'}}>
+        <View style={{width: '45%'}}>
           <SelectDropdown
             buttonStyle={{width: '95%', alignSelf: 'flex-end'}}
             selectedRowStyle={{backgroundColor: '#20b1aa'}}
@@ -132,8 +131,8 @@ const App = () => {
             defaultValue={selectedUnit1}
           />
         </View>
-        <View style={{width: '20%'}} />
-        <View style={{width: '40%'}}>
+        <View style={{width: '10%'}} />
+        <View style={{width: '45%'}}>
           <SelectDropdown
             buttonStyle={{width: '95%', alignSelf: 'flex-start'}}
             selectedRowStyle={{backgroundColor: '#20b1aa'}}
@@ -157,7 +156,13 @@ const App = () => {
         </View>
       </View>
 
-      <View style={{marginTop: '10%', width: '98%', alignSelf: 'center'}}>
+      <View
+        style={{
+          marginTop: '10%',
+          marginBottom: 20,
+          width: '98%',
+          alignSelf: 'center',
+        }}>
         <Button
           mode="contained"
           onPress={convert}
@@ -165,7 +170,7 @@ const App = () => {
           Convert
         </Button>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
